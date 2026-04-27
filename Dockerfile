@@ -32,6 +32,9 @@ COPY --from=backend-builder /app/src/backend/dist ./src/backend/dist
 # Copy built frontend files into backend's reach (consistent with our index.ts path)
 COPY --from=frontend-builder /app/src/frontend/dist ./src/frontend/dist
 
+# Copy data directory (containing items.json)
+COPY data ./data
+
 # Expose the port Fastify is listening on
 EXPOSE 3001
 
